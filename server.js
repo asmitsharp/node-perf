@@ -24,6 +24,8 @@ app.get("/timer", (req, res) => {
   res.send(`###### ${process.pid}`)
 })
 
+console.log(`Master has been started....${process.pid}`)
+console.log(`Worker process started....${process.pid}`)
 //console.log("Running server.js....")
 // if (cluster.isMaster) {
 //   console.log(`Master has been started....${process.pid}`)
