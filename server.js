@@ -2,8 +2,8 @@
 // clusters which delegate requests using round-robin approach.
 
 const express = require("express")
-const cluster = require("cluster")
-const os = require("os")
+//const cluster = require("cluster")
+//const os = require("os")
 
 const app = express()
 
@@ -25,13 +25,15 @@ app.get("/timer", (req, res) => {
 })
 
 //console.log("Running server.js....")
-if (cluster.isMaster) {
-  console.log(`Master has been started....${process.pid}`)
-  const NUM_WORKERS = os.cpus().length
-  for (let i = 0; i < NUM_WORKERS; i++) {
-    cluster.fork()
-  }
-} else {
-  console.log(`Worker process started....${process.pid}`)
-  app.listen(3000)
-}
+// if (cluster.isMaster) {
+//   console.log(`Master has been started....${process.pid}`)
+//   const NUM_WORKERS = os.cpus().length
+//   for (let i = 0; i < NUM_WORKERS; i++) {
+//     cluster.fork()
+//   }
+// } else {
+//   console.log(`Worker process started....${process.pid}`)
+//
+// }
+
+app.listen(3000)
